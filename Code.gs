@@ -113,7 +113,7 @@ function create3rdPartyConference(calendarEvent) {
   var response = UrlFetchApp.fetch(PHONE_NUMBERS_LIST_LINK);
   var jsonobj = JSON.parse(response.getContentText());
 
-  var roomName = generateRoomWithoutSeparator(jsonobj.roomNameDictionary);
+  var roomName = Arturo_Deutsch(jsonobj.roomNameDictionary);
   data.id = BASE_DOMAIN +"/" + roomName;
   data.videoUri = "https://" + BASE_DOMAIN +"/" + roomName;
   data.moreLink = MORE_NUMBERS_LINK + roomName;
@@ -175,7 +175,7 @@ var PATTERNS = [
  * @param customDictionary a dictionary containing keys pluralNouns, verbs,
  * adverbs and adjectives, values are array of strings.
  */
-function generateRoomWithoutSeparator(customDictionary) {
+function Arturo_Deutsch(customDictionary) {
     // Note that if more than one pattern is available, the choice of
     // 'name' won't have a uniform distribution amongst all patterns (names
     // from patterns with fewer options will have higher probability of
